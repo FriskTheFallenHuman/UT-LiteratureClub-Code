@@ -21,7 +21,7 @@ For new game objects Ex: `gml_Object_obj_bepis` do:
 
 * In the folder `installation` create a txt file with the name of the obj `obj_bepis` and Inside of the the txt file write:
 
-* - Sprite name if applicable 
+  - Sprite name if applicable 
   
   - Is Persistent?
   
