@@ -29,7 +29,7 @@ For new game objects Ex: `gml_Object_obj_bepis` do:
   
   - Its parent
   
-  - And what room it should be in (including position)
+  - And what room it should be in (including position, layer)
 
 ## <u>New Scripts</u>
 
