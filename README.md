@@ -35,8 +35,10 @@ For new game objects Ex: `gml_Object_obj_bepis` do:
 
 For new game scripts Ex: `gml_Script_scr_bepis` for normal scripts or `gml_GlobalScript_bepis` for GlobalScripts or `gml_RoomCC_room_bepis` for Room creation scripts do:
 
-* In the folder `installation` create a txt file with the name of the obj `scr_bepis` and Inside of the the txt file write:
+* In the folder `installation` create a txt file with the name of `scr_bepis` and Inside of the the txt file write:
   
-  * How to use it
+  * Usage
   
-  * Is Global Script?
+  * Script type
+
+  * Instance that the code is attached on if the code is room creation code and it's applicable
