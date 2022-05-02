@@ -1,0 +1,26 @@
+disclaimer = caster_load("music/st_drone.ogg")
+caster_loop(disclaimer, 1, 1)
+xx = __view_get(0, 0)
+yy = __view_get(1, 0)
+text_alpha_a = 0
+text_alpha_b = 0
+loaded = false
+transitioning = 0
+heart_pos_y = (yy + 140)
+heart_pos_x_padding = -10
+heart_pos_x_default = ((xx + 60) + heart_pos_x_padding)
+heart_pos_x = heart_pos_x_default
+heart_pos_x_h_padding = 155
+line_height = 30
+select_padding = 45
+confirming = 0
+continue_without_data = 0
+selected = false
+buffer = 0
+information_1 = "A Doki Doki Literature Club save file wasn't found."
+information_2 = "Would you like to play without a save file?#You may miss some stuffs without it"
+notice = "This is a fan mod.#That's not affiliated with Team Salvato#nor Toby Fox, It's designed to be played only#after both games has been completed.#You can download DDLC at:# www.ddlc.moe"
+warning = "WARNING:#THIS MOD CONTAINS FLASHING IMAGES#THAT MAY NOT BE SUITABLE TO CERTAIN PEOPLE#BY PLAYING YOU ACCEPT#EVERYTHING THAT WILL HAPPEN FROM NOW ON."
+choices = ["Yes", "No"]
+play_game = "Start Playing"
+exit_game = "Exit"

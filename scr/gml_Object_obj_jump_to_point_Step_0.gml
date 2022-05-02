@@ -1,0 +1,109 @@
+if i_ex(target)
+{
+    if (init == false)
+    {
+        dark = 1
+        fakegravity = (jumpspeed / (jumptime * 0.5))
+        ignoredepth = false
+        init = true
+        body_obj = scr_marker(target.x, target.y, target.sprite_index)
+        body_obj.sprite_index = target.sprite_index
+        body_obj.image_index = target.image_index
+        body_obj.image_speed = target.image_speed
+        body_obj.image_xscale = target.image_xscale
+        body_obj.image_yscale = target.image_yscale
+        body_obj.depth = target.depth
+        checksprite = body_obj.sprite_index
+        var __depthcheck = 0
+        with (body_obj)
+        {
+            _remdepth = depth
+            scr_depth()
+            if (_remdepth != depth)
+                __depthcheck = 1
+            depth = _remdepth
+        }
+        if (__depthcheck == 1)
+            ignoredepth = true
+        remy = y
+        shadowoffx = 0
+        shadowoffy = 0
+        shadowheight = sprite_get_height(checksprite)
+        y = endy
+        scr_depth()
+        y = remy
+        target.visible = false
+        falseendx = endx
+        falseendy = endy
+        if (usesprites == 1)
+        {
+            usespritetimer = 0
+            if (landsprite > spr_undertaletitle)
+            {
+                body_obj.sprite_index = landsprite
+                body_obj.image_speed = 0
+                body_obj.image_index = 0
+            }
+            con = 1
+        }
+        else
+            con = 2
+    }
+    if (con == 1)
+    {
+        usespritestimer++
+        if (usespritestimer >= 5)
+        {
+            body_obj.sprite_index = jumpsprite
+            body_obj.image_speed = 0.25
+            con = 2
+        }
+    }
+    if (con == 2)
+    {
+        timer++
+        jumpspeed -= fakegravity
+        jumpy -= jumpspeed
+        x = lerp(startx, falseendx, (timer / jumptime))
+        nowy = lerp(starty, falseendy, (timer / jumptime))
+        y = nowy
+        target.x = x
+        target.y = nowy
+        body_obj.x = x
+        body_obj.y = (nowy + jumpy)
+        if (ignoredepth == false)
+        {
+            scr_depth()
+            depth -= 5000
+            body_obj.depth = depth
+        }
+        if (timer >= jumptime)
+        {
+            body_obj.x = falseendx
+            body_obj.y = falseendy
+            target.x = endx
+            target.y = endy
+            con = 3
+            usespritestimer = 0
+        }
+    }
+    if (con == 3)
+    {
+        if (usesprites == 1)
+        {
+            body_obj.sprite_index = landsprite
+            usespritestimer++
+        }
+        else
+            usespritestimer = 10
+        if (usespritestimer >= 5)
+        {
+            target.visible = true
+            instance_destroy()
+        }
+    }
+}
+else
+    instance_destroy()
+if i_ex(body_obj)
+    body_obj.image_alpha = image_alpha

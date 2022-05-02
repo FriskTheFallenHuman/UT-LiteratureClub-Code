@@ -1,0 +1,1 @@
+return ((!global.debug) && (global.currentroom < room_area1 || global.currentroom > room_icecave1 || global.currentroom == room_castle_trueexit || global.currentroom == room_outsideworld || global.currentroom == room_undertale_end || global.currentroom == room_tundra_sansroom || global.currentroom == room_tundra_sansroom_dark || global.currentroom == room_tundra_sansbasement));

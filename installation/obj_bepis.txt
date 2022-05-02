@@ -1,0 +1,5 @@
+Sprite: spr_maincharad
+Is Persistent?: Nah
+Is Visible?: Yep
+Is A Child Of?: obj_solid
+Room?: room_bepis_valley

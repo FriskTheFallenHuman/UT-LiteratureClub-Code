@@ -1,0 +1,12 @@
+image_blend = c_black
+image_index = 0
+image_speed = 0
+fadetime = 13
+image_alpha = 0
+length = room_width
+height = room_height
+x = 0
+y = 0
+fadein = 0
+image_alpha = 0
+fadeframe = 0

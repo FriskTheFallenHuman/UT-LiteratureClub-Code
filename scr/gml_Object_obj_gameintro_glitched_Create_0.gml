@@ -1,0 +1,22 @@
+global.interact = 0
+global.facing = 0
+dongs = 0
+image_alpha = 1
+image_speed = 0
+intromusic = caster_load("music/story.ogg")
+stuck = caster_load("music/story_stuck.ogg")
+vol = 1
+caster_play(intromusic, 1, 0.91)
+global.typer = 11
+global.faceemotion = 0
+global.facechoice = 0
+global.msc = 0
+fadercreator = 0
+skip = false
+global.msg[0] = scr_gettext("obj_gameintro_glitched_44")
+global.msg[1] = scr_gettext("obj_gameintro_glitched_45")
+global.msg[2] = "%%%"
+mywriter = instance_create(40, 140, OBJ_WRITER)
+mywriter.sound_enable = 0
+alarm[0] = 200
+skipper = 0

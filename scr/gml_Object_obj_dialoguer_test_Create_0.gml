@@ -1,0 +1,12 @@
+bgx = 0
+bgy = 0
+editing = 0
+caretsiner = 0
+global.msc = 0
+global.msg[0] = "%%%"
+for (var i = 0; i < 999; i++)
+    global.msg[i] = "%%%"
+msgno = 0
+editingsong = caster_loop(mus_menu0, 1, 1)
+typer = 5
+facechoice = 0
