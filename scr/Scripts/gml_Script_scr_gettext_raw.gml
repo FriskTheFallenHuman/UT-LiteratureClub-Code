@@ -15,6 +15,6 @@ if (global.language == "ja")
     if (!is_undefined(loc_text))
         text = loc_text
 }
-if ((!found) && (!ignore_notfound) && global.debug)
-    show_error(("Could not find string: " + string(text_id)), 0)
+if ((!found) && (!ignore_notfound) && scr_debug())
+    scr_debug_print(("Could not find string: " + string(text_id)), 0)
 return text;

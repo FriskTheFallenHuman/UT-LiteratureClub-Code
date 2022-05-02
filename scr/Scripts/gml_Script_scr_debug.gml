@@ -1,0 +1,1 @@
+return (variable_global_exists("debug") || global.debug == true)

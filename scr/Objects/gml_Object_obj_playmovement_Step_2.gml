@@ -25,7 +25,7 @@ if (con == 2 && instance_exists(OBJ_WRITER) == 0)
 }
 if (con > 10)
 {
-    if obj_mainchara.moving
+    if (obj_mainchara.x != obj_mainchara.xprevious || obj_mainchara.y != obj_mainchara.yprevious)
         mainmove += 1
     if (global.facing != face2)
         frantic += 1
@@ -69,7 +69,7 @@ if (mainmove == 700)
     if (touch > 400)
         gm.sting = scr_gettext("mett_operacomment_4_touch")
     if (frantic > 120)
-        gm.sting = scr_gettext("mett_operacomment_4_frantic1")
+        gm.sting = scr_gettext("mett_operacomment_4_frantic")
     if (frantic > 300)
         gm.sting = scr_gettext("mett_operacomment_4_frantic2")
     gm.myfont = fnt_maintext
@@ -84,7 +84,7 @@ if (mainmove == 900)
     if (touch > 500)
         gm.sting = scr_gettext("mett_operacomment_5_touch")
     if (frantic > 140)
-        gm.sting = scr_gettext("mett_operacomment_5_frantic1")
+        gm.sting = scr_gettext("mett_operacomment_5_frantic")
     if (frantic > 400)
         gm.sting = scr_gettext("mett_operacomment_5_frantic2")
     gm.myfont = fnt_maintext

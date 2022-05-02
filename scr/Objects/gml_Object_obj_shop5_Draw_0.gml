@@ -752,8 +752,3 @@ if keyboard_check_pressed(vk_up)
     if (menuc[menu] < 0)
         menuc[menu] = menumax
 }
-if (global.debug == true)
-{
-    if keyboard_check_pressed(ord("G"))
-        global.gold = 5000
-}

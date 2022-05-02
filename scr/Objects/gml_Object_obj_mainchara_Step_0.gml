@@ -155,13 +155,14 @@ if obj_time.down
         }
     }
 }
+
 if (global.debug == true)
 {
     if (keyboard_check(vk_shift) && keyboard_check_pressed(ord("C")))
     {
-        scr_makecaterpillar(obj_mainchara.x, ((obj_mainchara.y - 16) + 2), 1, 0)
-        scr_makecaterpillar(obj_mainchara.x, ((obj_mainchara.y - 12) - 2), 2, 2)
-        scr_makecaterpillar((obj_mainchara.x + 4), ((obj_mainchara.y - 20) + 2), 3, 3)
+        scr_makecaterpillar(x, ((y - 16) + 2), 1, 0)
+        scr_makecaterpillar(x, ((y - 12) - 2), 2, 2)
+        scr_makecaterpillar((x + 4), ((y - 20) + 2), 3, 3)
     }
 }
 if control_check_pressed(0)

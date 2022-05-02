@@ -9,7 +9,7 @@ if (!global.broken)
             ossafe_game_end()
             break
         default:
-            show_message("Invaild action.")
+            scr_debug_print("Invaild action.")
             game_restart()
             break
     }

@@ -61,7 +61,7 @@ if (con == 2 && (!i_ex(cutscene_master)))
     global.plot = 0.1
     global.currentsong = caster_load("music/first_room.ogg")
     caster_loop(global.currentsong, 1, 1)
-    if (!global.debug)
+    if (!scr_debug())
         instance_destroy()
 }
 if (control_check_pressed(1) && allowskip && i_ex(cutscene_master))

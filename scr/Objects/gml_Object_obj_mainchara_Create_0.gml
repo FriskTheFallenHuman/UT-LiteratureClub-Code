@@ -66,9 +66,9 @@ if (global.interact == 3 && global.entrance > 0)
     }
 
     if (door_marker == noone)
-        show_message(("Invalid entrance: " + string(global.entrance)))
+        scr_debug_print(("Invalid entrance: " + string(global.entrance)))
     else if (!instance_exists(door_marker))
-        show_message((((("Missing marker: " + object_get_name(door_marker)) + " (Entrance: ") + string(global.entrance)) + ")"))
+        scr_debug_print((((("Missing marker: " + object_get_name(door_marker)) + " (Entrance: ") + string(global.entrance)) + ")"))
     else
     {
         x = door_marker.x
@@ -83,9 +83,6 @@ dsprite_run = dsprite
 rsprite_run = rsprite
 usprite_run = usprite
 lsprite_run = lsprite
-torrsprite = 1228
-torlsprite = 1229
-sansprankpsrite = 1480
 if (global.flag[85] == 1)
 {
     dsprite = spr_maincharad_umbrella
@@ -93,6 +90,9 @@ if (global.flag[85] == 1)
     usprite = spr_maincharau_umbrella
     lsprite = spr_maincharal_umbrella
 }
+torrsprite = 1228
+torlsprite = 1229
+sansprankpsrite = 1480
 inwater = 0
 h_skip = 0
 uncan = 0

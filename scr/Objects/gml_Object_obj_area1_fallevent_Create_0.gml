@@ -9,7 +9,7 @@ if (global.plot > 0 || room != room_area1)
             y = 120
         }
     }
-    if global.debug
+    if (scr_debug())
         cxychecker = 1
     else
     {
@@ -24,7 +24,7 @@ ev = id
 con = 0
 blacken = 0
 actor_count = 0
-allowskip = global.debug
+allowskip = scr_debug()
 chkname = string_to_hiragana(string_lower(global.charname))
 if (chkname == "gaster" || chkname == "がすたー")
     game_restart()

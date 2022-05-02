@@ -1,6 +1,6 @@
 if (!object_exists(argument0))
 {
-    show_message(("creating instance for non-existent object" + string(id)))
+    scr_debug_print(("creating instance for non-existent object" + string(id)))
     return 0;
 }
 if global.__argument_relative

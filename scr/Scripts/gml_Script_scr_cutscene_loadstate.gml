@@ -1,4 +1,4 @@
-show_debug_message("Cutscene Loaded")
+scr_debug_print("Cutscene Loaded")
 for (var i = 0; i < 20; i++)
 {
     if i_ex(actor_id[i])

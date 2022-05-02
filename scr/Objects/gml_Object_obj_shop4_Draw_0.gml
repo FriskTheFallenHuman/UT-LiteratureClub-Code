@@ -629,15 +629,3 @@ if keyboard_check_pressed(vk_up)
     if (menuc[menu] < 0)
         menuc[menu] = menumax
 }
-if (global.debug == true)
-{
-    if keyboard_check_pressed(ord("G"))
-        global.gold = 5000
-    if keyboard_check_pressed(ord("B"))
-        global.flag[437] += 1
-    if keyboard_check_pressed(ord("L"))
-    {
-        caster_free(-3)
-        room_goto(room_shop3)
-    }
-}

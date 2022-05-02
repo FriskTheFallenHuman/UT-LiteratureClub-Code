@@ -1,4 +1,4 @@
-show_debug_message("Cutscene Saved")
+scr_debug_print("Cutscene Saved")
 masterArray = variable_instance_get_names(id)
 for (var i = 0; i < array_length_1d(masterArray); i++)
     myVar[i] = variable_instance_get(id, masterArray[i])

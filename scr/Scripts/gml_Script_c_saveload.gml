@@ -1,4 +1,4 @@
-if global.debug
+if (scr_debug())
 {
     c_cmd("saveload", argument0, 0, 0, 0)
     if (argument0 == "save")
