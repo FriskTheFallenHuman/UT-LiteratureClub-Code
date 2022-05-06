@@ -153,9 +153,6 @@ if (hitcon == 16)
             event_user(4)
     }
 }
-if (global.debug == true)
-{
-}
 if (attack_mode == 1)
 {
     attack_msg = 1

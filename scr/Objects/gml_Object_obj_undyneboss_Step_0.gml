@@ -685,5 +685,3 @@ if (shakify > 0)
     x = (xstart + random(shakify))
     y = (ystart + random(shakify))
 }
-if (global.debug == true && keyboard_check_pressed(ord("U")))
-    global.monsterhp[myself] = 2

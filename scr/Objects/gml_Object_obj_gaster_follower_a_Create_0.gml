@@ -35,7 +35,7 @@ if (global.flag[5] == 61)
 choos = choose(0, 1, 2, 3, 4)
 if (choos != 4)
     gox = 0
-if (global.debug == true)
+if (scr_debug())
     gox = 1
 if (gox == 0)
     instance_destroy()

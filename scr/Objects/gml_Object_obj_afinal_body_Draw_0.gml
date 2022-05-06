@@ -185,9 +185,7 @@ if (bcon > 0)
         }
     }
 }
-if (global.debug == true)
-{
-}
+
 if (darker == 1)
 {
     with (obj_hpname)

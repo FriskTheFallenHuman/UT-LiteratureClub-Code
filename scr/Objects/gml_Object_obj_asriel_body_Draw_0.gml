@@ -129,34 +129,7 @@ if (aligncon == 4)
     normal = 1
     altimer = 0
 }
-if (global.debug == true)
-{
-    if (keyboard_check_pressed(ord("S")) && aligncon == 3)
-    {
-        type = 0
-        starcon = 1
-    }
-    if (keyboard_check_pressed(ord("B")) && aligncon == 3)
-    {
-        type = 1
-        starcon = 1
-    }
-    if (keyboard_check_pressed(ord("W")) && aligncon == 3)
-    {
-        type = 1
-        bladecon = 1
-    }
-    if (keyboard_check_pressed(ord("G")) && aligncon == 3)
-    {
-        type = 1
-        guncon = 1
-    }
-    if (keyboard_check_pressed(ord("H")) && aligncon == 3)
-    {
-        type = 1
-        gonercon = 1
-    }
-}
+
 if (starcon > 0)
 {
     if (starcon == 1)
@@ -410,25 +383,6 @@ if (gonercon > 0)
     {
         global.mnfight = 5
         gonercon = 0
-    }
-}
-if (global.debug == true)
-{
-    if keyboard_check_pressed(vk_space)
-    {
-        s_s = 0
-        if (aligncon == 0)
-            aligncon = 1
-        if (aligncon == 3)
-            aligncon = 4
-    }
-    if control_check_pressed(2)
-    {
-        s_s = 1
-        if (aligncon == 0)
-            aligncon = 1
-        if (aligncon == 3)
-            aligncon = 4
     }
 }
 if (specialnormal == 1)

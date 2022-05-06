@@ -2,13 +2,16 @@ if (started <= 0)
 {
     if (global.savedata_async_id >= 0)
         return;
+
     started = -1
+
     if (!trophy_init())
     {
         if (trophy_ts < 0)
             trophy_ts = current_time
         return;
     }
+
     ossafe_ini_open("config.ini")
     var lang = ini_read_string("General", "lang", "")
     var sb_i = ini_read_real("General", "sb", -1)
@@ -17,22 +20,31 @@ if (started <= 0)
     var b2_i = ini_read_real("joypad1", "b2", -1)
     var as_i = ini_read_real("joypad1", "as", -1)
     var jd_i = ini_read_real("joypad1", "jd", -1)
+
     if (string_length(lang) > 0)
         global.language = lang
+
     if (sb_i >= 0)
         global.screen_border_id = sb_i
+
     if (b0_i >= 0)
         global.button0 = b0_i
+
     if (b1_i >= 0)
         global.button1 = b1_i
+
     if (b2_i >= 0)
         global.button2 = b2_i
+
     if (as_i >= 0)
         global.analog_sense = as_i
+
     if (jd_i >= 0)
         global.joy_dir = jd_i
+
     ossafe_ini_close()
-    scr_enable_screen_border(global.osflavor >= true)
+    scr_enable_screen_border(global.osflavor >= 1)
+
     if (global.osflavor >= 4)
     {
         global.analog_sense = 0.15
@@ -40,6 +52,7 @@ if (started <= 0)
             global.analog_sense = 0.9
         global.joy_dir = 0
     }
+
     ossafe_ini_open("undertale.ini")
     fskip = ini_read_real(("FFFFF" + string(global.filechoice)), "E", -1)
     ftime = ini_read_real(("FFFFF" + string(global.filechoice)), "F", -1)
@@ -47,16 +60,19 @@ if (started <= 0)
     true_end = ini_read_real(("EndF" + string(global.filechoice)), "EndF", -1)
     ossafe_ini_close()
     sksk = 0
+
     if (ftime == 1)
     {
         sksk = 1
         room_goto(room_f_start)
     }
+
     if (true_end == 1 && sksk == 0)
     {
         sksk = 1
         room_goto(room_flowey_regret)
     }
+
     if (fskip >= 1 && sksk == 0)
     {
         global.filechoice = 8
@@ -73,24 +89,30 @@ if (started <= 0)
         else
             room_goto(PLACE_MENU)
     }
-    if global.firstrun
+
+    if (global.firstrun)
         room_goto(PLACE_DISCLAIMER)
+
     if (!scr_char_file("monika"))
     {
         global.broken = 1
-        if global.debug
-            global.debug = false
         room_goto(PLACE_DOG)
     }
+
     if ((!scr_char_file("sayori")) || (!scr_char_file("yuri")) || (!scr_char_file("natsuki")))
         screwed = 1
+
     started = 1
+
     if (ossafe_file_exists("system_information_962") && (!ossafe_file_exists("system_information_963")))
         room_goto(room_nothingness)
+
     return;
 }
+
 if (!paused)
     time += 1
+
 if (global.osflavor <= 2)
 {
     if (jt == 0)
@@ -103,6 +125,7 @@ if (global.osflavor <= 2)
                 j_ch = 0
         }
     }
+
     if (jt == 4)
     {
         if (j_ch != 1)
@@ -113,7 +136,9 @@ if (global.osflavor <= 2)
                 j_ch = 0
         }
     }
+
     jt += 1
+
     if (jt >= 8)
         jt = 0
 }
@@ -147,6 +172,7 @@ else if (os_type == os_switch_beta)
                 continue
             }
         }
+
         if (j_ch > 0)
             missing_controller_timeout = 0
         else if (missing_controller_timeout == 0)
@@ -161,7 +187,9 @@ else if (os_type == os_switch_beta)
         }
     }
 }
+
 control_update()
+
 if (j_ch > 0)
 {
     j_fr_p = j_fr
@@ -288,6 +316,7 @@ if (j_ch > 0)
             }
         }
     }
+
     if (j_fr != j_fr_p && j_fr == 1)
         keyboard_key_press(vk_right)
     if (j_fl != j_fl_p && j_fl == 1)
@@ -305,26 +334,29 @@ if (j_ch > 0)
     if (j_fu != j_fu_p && j_fu == 0)
         keyboard_key_release(vk_up)
 }
+
 up = 0
 down = 0
 left = 0
 right = 0
-if keyboard_check(vk_up)
+
+if (keyboard_check(vk_up))
     try_up = 1
-if keyboard_check_released(vk_up)
+if (keyboard_check_released(vk_up))
     try_up = 0
-if keyboard_check(vk_down)
+if (keyboard_check(vk_down))
     try_down = 1
-if keyboard_check_released(vk_down)
+if (keyboard_check_released(vk_down))
     try_down = 0
-if keyboard_check(vk_right)
+if (keyboard_check(vk_right))
     try_right = 1
-if keyboard_check_released(vk_right)
+if (keyboard_check_released(vk_right))
     try_right = 0
-if keyboard_check(vk_left)
+if (keyboard_check(vk_left))
     try_left = 1
-if keyboard_check_released(vk_left)
+if (keyboard_check_released(vk_left))
     try_left = 0
+
 if (global.osflavor == 1)
 {
     if try_up
@@ -347,23 +379,30 @@ else
     if try_right
         right = keyboard_check(vk_right)
 }
-if keyboard_check_released(vk_up)
+
+if (keyboard_check_released(vk_up))
     up = 0
-if keyboard_check_released(vk_down)
+
+if (keyboard_check_released(vk_down))
     down = 0
-if keyboard_check_released(vk_left)
+
+if (keyboard_check_released(vk_left))
     left = 0
-if keyboard_check_released(vk_right)
+
+if (keyboard_check_released(vk_right))
     right = 0
+
 mouse_moving = 0
 if (mouse_x != mx || mouse_y != my)
     mouse_moving = 1
 mx = mouse_x
 my = mouse_y
+
 var now_idle = (!((up || down || left || right || control_check(0) || control_check(1) || control_check(2) || mouse_moving)))
 if (now_idle && (!idle))
     idle_time = current_time
 idle = now_idle
+
 if control_check(2)
 {
     if (global.flag[28] == 1)
@@ -387,8 +426,10 @@ if control_check(2)
         }
     }
 }
-if keyboard_check_pressed(vk_f4)
+
+if (keyboard_check_pressed(vk_f4))
     fullscreen_toggle = true
+
 if (fullscreen_toggle == true)
 {
     fullscreen_toggle = false
@@ -407,25 +448,18 @@ if (fullscreen_toggle == true)
         ini_close()
     }
 }
+
 if (window_center_toggle == 2)
 {
     window_center()
     window_center_toggle = false
 }
+
 if (window_center_toggle == true)
     window_center_toggle = 2
+
 if (canquit == 1)
 {
-    if (global.debug == true)
-    {
-        if (keyboard_check_pressed(ord("R")) && instance_exists(obj_essaystuff) == 0)
-        {
-            debug_r += 1
-            if (debug_r > 5)
-                game_restart()
-            spec_rtimer = 1
-        }
-    }
     spec_rtimer += 1
     if (spec_rtimer >= 6)
         debug_r = 0
@@ -434,4 +468,5 @@ if (canquit == 1)
     else
         quit = 0
 }
-run = ((global.allowrun == 1 || global.debug == true) && global.interact == 0 && global.flag[366] == 0 && global.flag[85] == 0 && global.flag[17] == 0 && global.en != 0 && (keyboard_check(vk_alt) || keyboard_check(vk_backspace)))
+
+run = ((global.allowrun == 1 || scr_debug()) && global.interact == 0 && global.flag[366] == 0 && global.flag[85] == 0 && global.flag[17] == 0 && global.en != 0 && (keyboard_check(vk_alt) || keyboard_check(vk_backspace)))

@@ -31,7 +31,7 @@ if (global.flag[5] >= 90)
         ossafe_ini_close()
     }
 }
-if (global.debug == true)
+if (scr_debug())
     gox = 1
 if (gox == 0)
     instance_destroy()

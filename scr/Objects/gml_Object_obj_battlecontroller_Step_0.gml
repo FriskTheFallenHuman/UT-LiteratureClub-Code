@@ -374,5 +374,3 @@ if (currentplace < global.bmenuno)
     if (snd_isplaying(snd_select) != 1)
         snd_play(snd_select)
 }
-if (global.debug == true && keyboard_check_pressed(vk_space) == 1)
-    global.turntimer = 2

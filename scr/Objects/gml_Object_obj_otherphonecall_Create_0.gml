@@ -8,7 +8,7 @@ if (global.flag[5] >= 40 && global.flag[5] <= 45)
     type = 1
 if (global.flag[5] > 45 && global.flag[5] <= 50)
     type = 2
-if (global.debug == true)
+if (scr_debug())
     type = choose(1, 2)
 if (type == 0)
     instance_destroy()

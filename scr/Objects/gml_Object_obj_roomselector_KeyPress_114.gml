@@ -1,2 +1,2 @@
-if ((!selector_active) && global.debug)
+if (!selector_active)
     event_user(0)

@@ -12,11 +12,4 @@ if visible
         fader.depth = (obj_introframe.depth - 1)
         alarm[1] = 30
     }
-    if global.debug
-    {
-        if control_check(1)
-            room_speed = 240
-        else
-            room_speed = 30
-    }
 }

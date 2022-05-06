@@ -157,17 +157,3 @@ if (abs((army1 - idealarmy1)) < yadjust)
     army1 = idealarmy1
 if (abs((army2 - idealarmy2)) < yadjust)
     army2 = idealarmy2
-if (global.debug == true)
-{
-    if keyboard_check_pressed(vk_space)
-    {
-        armexp += 1
-        if (armexp == 7)
-            armexp = 0
-    }
-}
-if (global.debug == true)
-{
-    if keyboard_check_pressed(ord("B"))
-        global.flag[437] += 1
-}

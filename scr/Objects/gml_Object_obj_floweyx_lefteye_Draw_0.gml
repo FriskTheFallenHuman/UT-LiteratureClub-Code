@@ -9,11 +9,6 @@ if (con == 0)
     else if (frozen != 4)
         x = ((xstart + random(6)) - random(6))
 }
-if (global.debug == true)
-{
-    if keyboard_check_pressed(ord("E"))
-        con = 1
-}
 if (con == 1)
 {
     con = 3

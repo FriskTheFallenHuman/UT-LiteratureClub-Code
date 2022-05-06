@@ -1,12 +1,3 @@
-if (global.debug == true)
-{
-    if keyboard_check_pressed(ord("Y"))
-        turns -= 1
-    if keyboard_check_pressed(ord("U"))
-        turns += 1
-    if keyboard_check_pressed(ord("I"))
-        turns = 13
-}
 if (global.mnfight == 1)
 {
     if (talked == false)

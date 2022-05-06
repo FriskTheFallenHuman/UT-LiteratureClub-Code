@@ -10,11 +10,6 @@ if (con == 1)
     con = 3
     alarm[4] = 4
 }
-if (global.debug == true)
-{
-    if keyboard_check_pressed(ord("R"))
-        con = 1
-}
 if (con == 3)
 {
     siner2 += 1.2

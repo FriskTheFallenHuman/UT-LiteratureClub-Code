@@ -19,29 +19,6 @@ if (flash == 2)
     draw_set_alpha(1)
     blend2 = make_color_rgb(230, 230, (130 - (sin((siner / 3)) * 120)))
 }
-if (global.debug == true)
-{
-    if keyboard_check_pressed(ord("C"))
-    {
-        if (flash == false)
-            flash = 2
-        else
-        {
-            flash = false
-            blend2 = c_gray
-        }
-    }
-    if keyboard_check_pressed(ord("X"))
-    {
-        if (flash == false)
-            flash = true
-        else
-        {
-            flash = false
-            image_blend = c_gray
-        }
-    }
-}
 for (i = 0; i < 16; i += 1)
 {
     offx = (x + (sin(((i - 34) / 3)) * 45))

@@ -1,2 +1,2 @@
-if (global.debug == true)
+if (scr_debug())
     con += 1

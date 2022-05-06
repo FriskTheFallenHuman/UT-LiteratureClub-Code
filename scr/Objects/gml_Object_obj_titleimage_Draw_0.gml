@@ -20,17 +20,7 @@ else
         text_alpha = 0
         fadesiner = 0
     }
-    if (global.debug && global.debuginfos)
-    {
-        draw_set_alpha(1)
-        draw_set_color(c_white)
-        draw_set_font(fnt_maintext)
-        draw_text(0, 0, string(logoy))
-        draw_text(0, 15, ("Alarm 2: " + string(alarm_get(2))))
-        draw_text(0, 25, ("Alarm 3: " + string(alarm_get(3))))
-        draw_text(0, 35, ("Text Alpha: " + string(text_alpha)))
-        draw_text(0, 45, ("BALL: " + string(ballamount)))
-    }
+
     var curalpha = 1
     UTLC_comment = "Funny fadeout effect"
     if (alarm[0] <= 15)

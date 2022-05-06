@@ -700,8 +700,3 @@ if (turnturn == 0 && introcon == 2)
     ossafe_fill_rectangle(-10, -10, 999, 999)
     draw_sprite(spr_ourheart, 0, obj_vsflowey_heart.x, obj_vsflowey_heart.y)
 }
-if (global.debug == true)
-{
-    draw_set_color(c_yellow)
-    draw_text((room_width - 60), (room_height - 40), string_hash_to_newline("debug"))
-}

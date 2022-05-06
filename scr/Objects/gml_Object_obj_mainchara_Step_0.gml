@@ -1,4 +1,4 @@
-switch global.facing
+switch (global.facing)
 {
     case 0:
         sprite_index = dsprite
@@ -18,8 +18,10 @@ if (collision_point((bbox_left - 3), (bbox_top - 3), obj_solidparent, 0, 1) == -
     crumpet = 1
 else
     crumpet = 2
+
 strumpet = bbox_top
 trumpet = bbox_left
+
 if (global.inbattle == 1)
 {
     if (global.flag[15] == 0)
@@ -38,6 +40,7 @@ if (global.inbattle == 1)
             global.flag[global.flag[200]] += (global.kills - global.flag[201])
     }
 }
+
 if (obj_time.run && disable_run == 0 && inwater == 0 && global.en > 3)
 {
     is_running = 1
@@ -67,7 +70,8 @@ else
     if (global.en != 20)
         global.en += 0.1
 }
-if obj_time.left
+
+if (obj_time.left)
 {
     if (movement == 1)
     {
@@ -89,7 +93,8 @@ if obj_time.left
             global.facing = 3
     }
 }
-if obj_time.up
+
+if (obj_time.up)
 {
     if (movement == 1)
     {
@@ -108,7 +113,8 @@ if obj_time.up
             global.facing = 2
     }
 }
-if obj_time.right
+
+if (obj_time.right)
 {
     if (movement == 1)
     {
@@ -133,7 +139,8 @@ if obj_time.right
         }
     }
 }
-if obj_time.down
+
+if (obj_time.down)
 {
     if (movement == 1)
     {
@@ -156,21 +163,15 @@ if obj_time.down
     }
 }
 
-if (global.debug == true)
-{
-    if (keyboard_check(vk_shift) && keyboard_check_pressed(ord("C")))
-    {
-        scr_makecaterpillar(x, ((y - 16) + 2), 1, 0)
-        scr_makecaterpillar(x, ((y - 12) - 2), 2, 2)
-        scr_makecaterpillar((x + 4), ((y - 20) + 2), 3, 3)
-    }
-}
-if control_check_pressed(0)
+if (control_check_pressed(0))
     event_user(0)
-if control_check_pressed(2)
+
+if (control_check_pressed(2))
     event_user(2)
+
 with (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, obj_doorparent, 0, 0))
     event_user(9)
+
 if (instance_exists(obj_battler) == 0)
 {
     scr_depth()

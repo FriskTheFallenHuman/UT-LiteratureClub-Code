@@ -15,5 +15,5 @@ tobycode = 0
 customconv = 0
 tor_actor = -4
 pantor = 0
-if global.debug
+if (scr_debug())
     instance_create(-114, -514, obj_area1_fallevent)

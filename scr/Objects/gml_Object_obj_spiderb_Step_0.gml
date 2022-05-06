@@ -388,10 +388,3 @@ if control_check_pressed(1)
         control_clear(1)
     }
 }
-if (global.debug == true)
-{
-    if keyboard_check_pressed(ord("D"))
-        turnamt += 1
-    if (keyboard_check_pressed(ord("A")) && turnamt > 0)
-        turnamt -= 1
-}

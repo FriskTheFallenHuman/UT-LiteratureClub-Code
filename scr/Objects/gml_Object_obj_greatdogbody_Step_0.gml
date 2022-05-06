@@ -29,8 +29,3 @@ if instance_exists(obj_greatdog)
         y = (obj_uborder.y - 85)
     }
 }
-if (global.debug == true)
-{
-    if keyboard_check(vk_space)
-        obj_greatdog.dogignore = 3
-}

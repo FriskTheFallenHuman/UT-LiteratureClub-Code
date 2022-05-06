@@ -644,19 +644,3 @@ if (drama == 1)
         }
     }
 }
-if (global.debug == true && keyboard_check_pressed(ord("Q")))
-{
-    if (hit_try < 12)
-    {
-        hit_try = 12
-        hit_reached = 11
-    }
-}
-if (global.debug == true && keyboard_check_pressed(ord("E")))
-{
-    if (hit_try < 22)
-    {
-        hit_try = 22
-        hit_reached = 21
-    }
-}

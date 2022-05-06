@@ -96,26 +96,6 @@ if (desperate == 1)
 }
 draw_sprite_ext(spr_floweyx_dimple, anim, (((x + (sin((siner / 2)) * 3)) - 5) + xbonus), (y - 10), 1, (1 + (sin((siner / 4)) * 0.03)), (0 + cos((siner / 2))), image_blend, 1)
 draw_sprite_ext(spr_floweyx_dimple, anim, ((((x + op) - (sin((siner / 2)) * 3)) + 5) - xbonus), (y - 10), -1, (1 + (sin((siner / 4)) * 0.03)), (0 + cos((siner / 2))), image_blend, 1)
-if (global.debug == true)
-{
-    if control_check_pressed(1)
-    {
-        if (mode == 0)
-            mode = 1
-        else
-            mode = 0
-    }
-}
-if (global.debug == true)
-{
-    if control_check_pressed(2)
-    {
-        if (laugh == 0)
-            laugh = 1
-        else
-            laugh = 0
-    }
-}
 if (laugh == 1)
 {
     siner = 0

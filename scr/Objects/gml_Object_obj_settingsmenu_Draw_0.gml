@@ -1,8 +1,3 @@
-if global.debug
-{
-    scr_setfont(fnt_maintext)
-    draw_text(0, 0, ((("Menu Pos: " + string(menu)) + " Menu Max: ") + string(menu_max)))
-}
 if (fun == true)
     event_user(0)
 draw_set_color(global.COL_A)
