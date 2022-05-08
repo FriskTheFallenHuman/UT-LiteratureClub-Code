@@ -181,9 +181,9 @@ if (os_type == os_psvita)
     global.version_undertale += "-V"
  
 global.version = "1.0.0"
-if global.demo
+if (global.demo)
     global.version += "-DEMO"
-if global.debug
+if (scr_debug())
     global.version += "-DEV"
 
 global.to_introstory = 0

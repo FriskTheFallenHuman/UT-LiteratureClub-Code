@@ -1,6 +1,4 @@
-var r, g, b, col_str;
-var draw_color = c_white
-var quitsprite = -4
+var quitsprite = noone
 
 if (quit >= 1)
 {

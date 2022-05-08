@@ -129,6 +129,8 @@ if (global.debuginfos)
     {
         with(obj_time)
         {
+			var r, g, b, col_str;
+			var draw_color = c_white
 			display_set_gui_size(-1, -1)
 			texture_set_interpolation(false)
 			scr_setfont(fnt_maintext)

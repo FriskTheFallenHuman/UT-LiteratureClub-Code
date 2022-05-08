@@ -7,6 +7,7 @@ for (var i = 4; i <= num_borders; i++)
     border_enabled[i] = 0
 border_11 = 0
 fun = false
+
 if ossafe_file_exists("undertale.ini")
 {
     ossafe_ini_open("undertale.ini")
@@ -45,10 +46,11 @@ if ossafe_file_exists("undertale.ini")
     }
     ossafe_ini_close()
 }
+
 menu = 1
-menu_max = 5
-menu_engage = 0
-canchange = 0
+menu_max = 6
+menu_engage = false
+canchange = false
 buffer = 5
 intro = 0
 weather = 0
@@ -57,6 +59,7 @@ extreme = 0
 extreme2 = 0
 harp = 0
 weathermusic = 0
+
 if (fun == true)
 {
     intro = 1
@@ -72,14 +75,16 @@ if (fun == true)
     if (month == 9 || month == 10 || month == 11)
         weather = 4
 }
-finish = 0
-if global.to_joyconfig
+
+finish = false
+
+if (global.to_joyconfig)
 {
     global.to_joyconfig = 0
     var jc = instance_create(0, 0, obj_joypadmenu)
     with (jc)
     {
-        menu_engage = 0
+        menu_engage = false
         buffer = other.buffer
         intro = other.intro
         rectile = other.rectile

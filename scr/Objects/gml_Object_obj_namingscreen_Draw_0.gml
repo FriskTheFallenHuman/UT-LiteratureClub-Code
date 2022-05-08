@@ -265,7 +265,7 @@ if (naming == 1)
         draw_text(charset_x2, charset_y, string_hash_to_newline(charset_text2))
     }
     var old_col = selected_col
-    while 1
+    do
     {
         if keyboard_check_pressed(vk_right)
         {
@@ -274,446 +274,120 @@ if (naming == 1)
             {
                 if (selected_col > 2)
                     selected_col = 0
-                if keyboard_check_pressed(vk_left)
-                {
-                    selected_col--
-                    if (selected_col < 0)
-                    {
-                        if (selected_row == 0)
-                            selected_col = 0
-                        else if (selected_row > 0)
-                        {
-                            selected_col = (cols - 1)
-                            selected_row--
-                        }
-                        else
-                            selected_col = 2
-                    }
-                }
-                if keyboard_check_pressed(vk_down)
-                {
-                    if (selected_row == -1)
-                    {
-                        selected_row = 0
-                        xx = menu_x0
-                        if (selected_col == 1)
-                            xx = menu_x1
-                        if (selected_col == 2)
-                            xx = menu_x2
-                        var best = 0
-                        var bestdiff = abs((xmap[0] - xx))
-                        for (i = 1; i < cols; i++)
-                        {
-                            var diff = abs((xmap[i] - xx))
-                            if (diff < bestdiff)
-                            {
-                                best = i
-                                bestdiff = diff
-                            }
-                        }
-                        selected_col = best
-                    }
-                    else
-                    {
-                        selected_row++
-                        if (selected_row >= rows)
-                        {
-                            if (global.language == "ja")
-                            {
-                                selected_row = -2
-                                xx = xmap[selected_col]
-                                if (xx >= (charset_x2 - 10))
-                                    selected_col = 2
-                                else if (xx >= (charset_x1 - 10))
-                                    selected_col = 1
-                                else
-                                    selected_col = 0
-                            }
-                            else
-                            {
-                                selected_row = -1
-                                xx = xmap[selected_col]
-                                if (xx >= (menu_x2 - 10))
-                                    selected_col = 2
-                                else if (xx >= (menu_x1 - 10))
-                                    selected_col = 1
-                                else
-                                    selected_col = 0
-                            }
-                        }
-                    }
-                }
-                if keyboard_check_pressed(vk_up)
-                {
-                    if (selected_row == -2)
-                    {
-                        selected_row = (rows - 1)
-                        if (selected_col > 0)
-                        {
-                            xx = charset_x1
-                            if (selected_col == 2)
-                                xx = charset_x2
-                            best = 0
-                            bestdiff = abs((xmap[0] - xx))
-                            for (i = 1; i < cols; i++)
-                            {
-                                diff = abs((xmap[i] - xx))
-                                if (diff < bestdiff)
-                                {
-                                    best = i
-                                    bestdiff = diff
-                                }
-                            }
-                            selected_col = best
-                        }
-                    }
-                    else if (global.language != "ja" && selected_row == -1)
-                    {
-                        selected_row = (rows - 1)
-                        if (selected_col > 0)
-                        {
-                            xx = menu_x1
-                            if (selected_col == 2)
-                                xx = menu_x2
-                            best = 0
-                            bestdiff = abs((xmap[0] - xx))
-                            for (i = 1; i < cols; i++)
-                            {
-                                diff = abs((xmap[i] - xx))
-                                if (diff < bestdiff)
-                                {
-                                    best = i
-                                    bestdiff = diff
-                                }
-                            }
-                            selected_col = best
-                        }
-                    }
-                    else
-                    {
-                        selected_row--
-                        if (selected_row == -1)
-                        {
-                            xx = xmap[selected_col]
-                            if (xx >= (menu_x2 - 10))
-                                selected_col = 2
-                            else if (xx >= (menu_x1 - 10))
-                                selected_col = 1
-                            else
-                                selected_col = 0
-                        }
-                    }
-                }
-                if (selected_col < 0 || selected_row < 0 || string_length(charmap[selected_row, selected_col]) > 0)
-                {
-                }
             }
             else if (selected_col >= cols)
             {
                 if (selected_row == (rows - 1))
+                {
                     selected_col = old_col
+                    break
+                }
                 else
                 {
                     selected_col = 0
                     selected_row++
-                    if keyboard_check_pressed(vk_left)
-                    {
-                        selected_col--
-                        if (selected_col < 0)
-                        {
-                            if (selected_row == 0)
-                                selected_col = 0
-                            else if (selected_row > 0)
-                            {
-                                selected_col = (cols - 1)
-                                selected_row--
-                            }
-                            else
-                                selected_col = 2
-                        }
-                    }
-                    if keyboard_check_pressed(vk_down)
-                    {
-                        if (selected_row == -1)
-                        {
-                            selected_row = 0
-                            xx = menu_x0
-                            if (selected_col == 1)
-                                xx = menu_x1
-                            if (selected_col == 2)
-                                xx = menu_x2
-                            best = 0
-                            bestdiff = abs((xmap[0] - xx))
-                            for (i = 1; i < cols; i++)
-                            {
-                                diff = abs((xmap[i] - xx))
-                                if (diff < bestdiff)
-                                {
-                                    best = i
-                                    bestdiff = diff
-                                }
-                            }
-                            selected_col = best
-                        }
-                        else
-                        {
-                            selected_row++
-                            if (selected_row >= rows)
-                            {
-                                if (global.language == "ja")
-                                {
-                                    selected_row = -2
-                                    xx = xmap[selected_col]
-                                    if (xx >= (charset_x2 - 10))
-                                        selected_col = 2
-                                    else if (xx >= (charset_x1 - 10))
-                                        selected_col = 1
-                                    else
-                                        selected_col = 0
-                                }
-                                else
-                                {
-                                    selected_row = -1
-                                    xx = xmap[selected_col]
-                                    if (xx >= (menu_x2 - 10))
-                                        selected_col = 2
-                                    else if (xx >= (menu_x1 - 10))
-                                        selected_col = 1
-                                    else
-                                        selected_col = 0
-                                }
-                            }
-                        }
-                    }
-                    if keyboard_check_pressed(vk_up)
-                    {
-                        if (selected_row == -2)
-                        {
-                            selected_row = (rows - 1)
-                            if (selected_col > 0)
-                            {
-                                xx = charset_x1
-                                if (selected_col == 2)
-                                    xx = charset_x2
-                                best = 0
-                                bestdiff = abs((xmap[0] - xx))
-                                for (i = 1; i < cols; i++)
-                                {
-                                    diff = abs((xmap[i] - xx))
-                                    if (diff < bestdiff)
-                                    {
-                                        best = i
-                                        bestdiff = diff
-                                    }
-                                }
-                                selected_col = best
-                            }
-                        }
-                        else if (global.language != "ja" && selected_row == -1)
-                        {
-                            selected_row = (rows - 1)
-                            if (selected_col > 0)
-                            {
-                                xx = menu_x1
-                                if (selected_col == 2)
-                                    xx = menu_x2
-                                best = 0
-                                bestdiff = abs((xmap[0] - xx))
-                                for (i = 1; i < cols; i++)
-                                {
-                                    diff = abs((xmap[i] - xx))
-                                    if (diff < bestdiff)
-                                    {
-                                        best = i
-                                        bestdiff = diff
-                                    }
-                                }
-                                selected_col = best
-                            }
-                        }
-                        else
-                        {
-                            selected_row--
-                            if (selected_row == -1)
-                            {
-                                xx = xmap[selected_col]
-                                if (xx >= (menu_x2 - 10))
-                                    selected_col = 2
-                                else if (xx >= (menu_x1 - 10))
-                                    selected_col = 1
-                                else
-                                    selected_col = 0
-                            }
-                        }
-                    }
-                    if (selected_col < 0 || selected_row < 0 || string_length(charmap[selected_row, selected_col]) > 0)
-                    {
-                    }
-                }
-            }
-            else
-            {
-                if keyboard_check_pressed(vk_left)
-                {
-                    selected_col--
-                    if (selected_col < 0)
-                    {
-                        if (selected_row == 0)
-                            selected_col = 0
-                        else if (selected_row > 0)
-                        {
-                            selected_col = (cols - 1)
-                            selected_row--
-                        }
-                        else
-                            selected_col = 2
-                    }
-                }
-                if keyboard_check_pressed(vk_down)
-                {
-                    if (selected_row == -1)
-                    {
-                        selected_row = 0
-                        xx = menu_x0
-                        if (selected_col == 1)
-                            xx = menu_x1
-                        if (selected_col == 2)
-                            xx = menu_x2
-                        best = 0
-                        bestdiff = abs((xmap[0] - xx))
-                        for (i = 1; i < cols; i++)
-                        {
-                            diff = abs((xmap[i] - xx))
-                            if (diff < bestdiff)
-                            {
-                                best = i
-                                bestdiff = diff
-                            }
-                        }
-                        selected_col = best
-                    }
-                    else
-                    {
-                        selected_row++
-                        if (selected_row >= rows)
-                        {
-                            if (global.language == "ja")
-                            {
-                                selected_row = -2
-                                xx = xmap[selected_col]
-                                if (xx >= (charset_x2 - 10))
-                                    selected_col = 2
-                                else if (xx >= (charset_x1 - 10))
-                                    selected_col = 1
-                                else
-                                    selected_col = 0
-                            }
-                            else
-                            {
-                                selected_row = -1
-                                xx = xmap[selected_col]
-                                if (xx >= (menu_x2 - 10))
-                                    selected_col = 2
-                                else if (xx >= (menu_x1 - 10))
-                                    selected_col = 1
-                                else
-                                    selected_col = 0
-                            }
-                        }
-                    }
-                }
-                if keyboard_check_pressed(vk_up)
-                {
-                    if (selected_row == -2)
-                    {
-                        selected_row = (rows - 1)
-                        if (selected_col > 0)
-                        {
-                            xx = charset_x1
-                            if (selected_col == 2)
-                                xx = charset_x2
-                            best = 0
-                            bestdiff = abs((xmap[0] - xx))
-                            for (i = 1; i < cols; i++)
-                            {
-                                diff = abs((xmap[i] - xx))
-                                if (diff < bestdiff)
-                                {
-                                    best = i
-                                    bestdiff = diff
-                                }
-                            }
-                            selected_col = best
-                        }
-                    }
-                    else if (global.language != "ja" && selected_row == -1)
-                    {
-                        selected_row = (rows - 1)
-                        if (selected_col > 0)
-                        {
-                            xx = menu_x1
-                            if (selected_col == 2)
-                                xx = menu_x2
-                            best = 0
-                            bestdiff = abs((xmap[0] - xx))
-                            for (i = 1; i < cols; i++)
-                            {
-                                diff = abs((xmap[i] - xx))
-                                if (diff < bestdiff)
-                                {
-                                    best = i
-                                    bestdiff = diff
-                                }
-                            }
-                            selected_col = best
-                        }
-                    }
-                    else
-                    {
-                        selected_row--
-                        if (selected_row == -1)
-                        {
-                            xx = xmap[selected_col]
-                            if (xx >= (menu_x2 - 10))
-                                selected_col = 2
-                            else if (xx >= (menu_x1 - 10))
-                                selected_col = 1
-                            else
-                                selected_col = 0
-                        }
-                    }
-                }
-                if (selected_col < 0 || selected_row < 0 || string_length(charmap[selected_row, selected_col]) > 0)
-                {
                 }
             }
         }
-        else
+        if keyboard_check_pressed(vk_left)
         {
-            if keyboard_check_pressed(vk_left)
+            selected_col--
+            if (selected_col < 0)
             {
-                selected_col--
-                if (selected_col < 0)
+                if (selected_row == 0)
+                    selected_col = 0
+                else if (selected_row > 0)
                 {
-                    if (selected_row == 0)
-                        selected_col = 0
-                    else if (selected_row > 0)
+                    selected_col = (cols - 1)
+                    selected_row--
+                }
+                else
+                    selected_col = 2
+            }
+        }
+        if keyboard_check_pressed(vk_down)
+        {
+            if (selected_row == -1)
+            {
+                selected_row = 0
+                xx = menu_x0
+                if (selected_col == 1)
+                    xx = menu_x1
+                if (selected_col == 2)
+                    xx = menu_x2
+                var best = 0
+                var bestdiff = abs((xmap[0] - xx))
+                for (i = 1; i < cols; i++)
+                {
+                    var diff = abs((xmap[i] - xx))
+                    if (diff < bestdiff)
                     {
-                        selected_col = (cols - 1)
-                        selected_row--
+                        best = i
+                        bestdiff = diff
+                    }
+                }
+                selected_col = best
+            }
+            else
+            {
+                selected_row++
+                if (selected_row >= rows)
+                {
+                    if (global.language == "ja")
+                    {
+                        selected_row = -2
+                        xx = xmap[selected_col]
+                        if (xx >= (charset_x2 - 10))
+                            selected_col = 2
+                        else if (xx >= (charset_x1 - 10))
+                            selected_col = 1
+                        else
+                            selected_col = 0
                     }
                     else
-                        selected_col = 2
+                    {
+                        selected_row = -1
+                        xx = xmap[selected_col]
+                        if (xx >= (menu_x2 - 10))
+                            selected_col = 2
+                        else if (xx >= (menu_x1 - 10))
+                            selected_col = 1
+                        else
+                            selected_col = 0
+                    }
                 }
             }
-            if keyboard_check_pressed(vk_down)
+        }
+        if keyboard_check_pressed(vk_up)
+        {
+            if (selected_row == -2)
             {
-                if (selected_row == -1)
+                selected_row = (rows - 1)
+                if (selected_col > 0)
                 {
-                    selected_row = 0
-                    xx = menu_x0
-                    if (selected_col == 1)
-                        xx = menu_x1
+                    xx = charset_x1
+                    if (selected_col == 2)
+                        xx = charset_x2
+                    best = 0
+                    bestdiff = abs((xmap[0] - xx))
+                    for (i = 1; i < cols; i++)
+                    {
+                        diff = abs((xmap[i] - xx))
+                        if (diff < bestdiff)
+                        {
+                            best = i
+                            bestdiff = diff
+                        }
+                    }
+                    selected_col = best
+                }
+            }
+            else if (global.language != "ja" && selected_row == -1)
+            {
+                selected_row = (rows - 1)
+                if (selected_col > 0)
+                {
+                    xx = menu_x1
                     if (selected_col == 2)
                         xx = menu_x2
                     best = 0
@@ -729,102 +403,24 @@ if (naming == 1)
                     }
                     selected_col = best
                 }
-                else
-                {
-                    selected_row++
-                    if (selected_row >= rows)
-                    {
-                        if (global.language == "ja")
-                        {
-                            selected_row = -2
-                            xx = xmap[selected_col]
-                            if (xx >= (charset_x2 - 10))
-                                selected_col = 2
-                            else if (xx >= (charset_x1 - 10))
-                                selected_col = 1
-                            else
-                                selected_col = 0
-                        }
-                        else
-                        {
-                            selected_row = -1
-                            xx = xmap[selected_col]
-                            if (xx >= (menu_x2 - 10))
-                                selected_col = 2
-                            else if (xx >= (menu_x1 - 10))
-                                selected_col = 1
-                            else
-                                selected_col = 0
-                        }
-                    }
-                }
             }
-            if keyboard_check_pressed(vk_up)
+            else
             {
-                if (selected_row == -2)
+                selected_row--
+                if (selected_row == -1)
                 {
-                    selected_row = (rows - 1)
-                    if (selected_col > 0)
-                    {
-                        xx = charset_x1
-                        if (selected_col == 2)
-                            xx = charset_x2
-                        best = 0
-                        bestdiff = abs((xmap[0] - xx))
-                        for (i = 1; i < cols; i++)
-                        {
-                            diff = abs((xmap[i] - xx))
-                            if (diff < bestdiff)
-                            {
-                                best = i
-                                bestdiff = diff
-                            }
-                        }
-                        selected_col = best
-                    }
+                    xx = xmap[selected_col]
+                    if (xx >= (menu_x2 - 10))
+                        selected_col = 2
+                    else if (xx >= (menu_x1 - 10))
+                        selected_col = 1
+                    else
+                        selected_col = 0
                 }
-                else if (global.language != "ja" && selected_row == -1)
-                {
-                    selected_row = (rows - 1)
-                    if (selected_col > 0)
-                    {
-                        xx = menu_x1
-                        if (selected_col == 2)
-                            xx = menu_x2
-                        best = 0
-                        bestdiff = abs((xmap[0] - xx))
-                        for (i = 1; i < cols; i++)
-                        {
-                            diff = abs((xmap[i] - xx))
-                            if (diff < bestdiff)
-                            {
-                                best = i
-                                bestdiff = diff
-                            }
-                        }
-                        selected_col = best
-                    }
-                }
-                else
-                {
-                    selected_row--
-                    if (selected_row == -1)
-                    {
-                        xx = xmap[selected_col]
-                        if (xx >= (menu_x2 - 10))
-                            selected_col = 2
-                        else if (xx >= (menu_x1 - 10))
-                            selected_col = 1
-                        else
-                            selected_col = 0
-                    }
-                }
-            }
-            if (selected_col < 0 || selected_row < 0 || string_length(charmap[selected_row, selected_col]) > 0)
-            {
             }
         }
     }
+    until (selected_col < 0 || selected_row < 0 || string_length(charmap[selected_row, selected_col]) > 0);
     bks_f = 0
     confirm = control_check_pressed(0)
     if confirm
