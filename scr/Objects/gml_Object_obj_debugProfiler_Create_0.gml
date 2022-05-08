@@ -13,7 +13,6 @@ global.debug_god_mode = false
 // Create our obj_roomselector here so we don't clutter PLACE_INITIALIZED
 instance_create(x, y, obj_roomselector)
 
-debug_keycombo = keyboard_check(vk_shift) && keyboard_check(vk_alt)
 writedisplay = false
 alarm[0] = 300
 showdebug = false
