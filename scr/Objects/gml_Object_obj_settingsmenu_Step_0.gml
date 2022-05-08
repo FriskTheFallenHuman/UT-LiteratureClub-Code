@@ -118,10 +118,10 @@ if (menu_engage == false)
             {
                 with(obj_screen)
                 {
-                    if (dynRatio == 0)
-                        dynRatio = 1
-                    else
+                    if (dynRatio == 1)
                         dynRatio = 0
+                    else
+                        dynRatio = 1
 						
 					scr_enable_screen_border(!dynRatio)
                 }
