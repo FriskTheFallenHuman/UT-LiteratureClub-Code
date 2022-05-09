@@ -102,10 +102,10 @@ if (started <= 0)
     if ((!scr_char_file("sayori")) || (!scr_char_file("yuri")) || (!scr_char_file("natsuki")))
         screwed = 1
 
-    started = 1
-
     if (ossafe_file_exists("system_information_962") && (!ossafe_file_exists("system_information_963")))
         room_goto(room_nothingness)
+
+    started = 1
 
     return;
 }
@@ -149,8 +149,7 @@ else if (os_type == os_switch_beta)
     else
     {
         j_ch = 0
-        var i = 0
-        while (i < gamepad_get_device_count())
+        for (var i = 0; (i < gamepad_get_device_count()); i++)
         {
             if gamepad_is_connected(i)
             {
@@ -162,14 +161,7 @@ else if (os_type == os_switch_beta)
                 else
                 {
                     j_ch = (i + 1)
-                    i++
-                    continue
                 }
-            }
-            else
-            {
-                i++
-                continue
             }
         }
 

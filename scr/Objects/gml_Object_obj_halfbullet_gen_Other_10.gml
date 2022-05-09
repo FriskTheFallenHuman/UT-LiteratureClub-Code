@@ -274,7 +274,6 @@ if (defined == 0)
                 else
                 {
                     cur_pat = choose(0, 1, 2, 3, 4, 5)
-                    continue
                 }
             }
             if (cur_pat == 0)
@@ -355,7 +354,6 @@ if (defined == 0)
                 else
                 {
                     cur_pat = choose(0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
-                    continue
                 }
             }
             if (cur_pat >= 6)

@@ -11,11 +11,11 @@ else
     var num_lines = 0
     while (string_byte_length(data) > 0)
     {
-        var newline_pos = string_pos("\n", data)
+        var newline_pos = string_pos(chr($0A), data)
         if (newline_pos > 0)
         {
             var nextline_pos = (newline_pos + 1)
-            if (newline_pos > 1 && string_char_at(data, (newline_pos - 1)) == "\r")
+            if (newline_pos > 1 && string_char_at(data, (newline_pos - 1)) == chr($0D))
                 newline_pos--
             if (newline_pos > 1)
                 var line = substr(data, 1, (newline_pos - 1))

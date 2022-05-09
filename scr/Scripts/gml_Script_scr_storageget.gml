@@ -9,16 +9,12 @@ while (loop == 1)
         global.flag[(i + argument1)] = argument0
         break
     }
-    else if (i == 10)
+    if (i == 10)
     {
         script_execute(scr_itemnospace)
         break
     }
-    else
-    {
-        i += 1
-        continue
-    }
+    i += 1
 }
 script_execute(scr_itemnameb)
 script_execute(scr_storagename, 300)

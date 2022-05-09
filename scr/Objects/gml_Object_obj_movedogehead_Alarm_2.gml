@@ -18,6 +18,8 @@ if (specialx == 1)
                 instance_destroy()
         }
         return;
+        specialx = 0
+        alarm[2] = -1
     }
     gg = floor(random(3))
     if instance_exists(blcon)

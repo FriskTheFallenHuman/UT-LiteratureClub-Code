@@ -223,8 +223,7 @@ if (type == 7)
         b2 = choose(0, 1, 2, 3)
         b3 = choose(0, 1, 2, 3)
         bm = 0
-        i = 0
-        if (i < 4)
+        for (i = 0; i < 4; i += 1)
         {
             if (b == i || b2 == i || (b3 == i && bm < 3))
             {
@@ -233,16 +232,6 @@ if (type == 7)
             }
             else
                 instance_create((global.idealborder[0] + (g[i] * 25)), ((0 - (j * 45)) + random(20)), obj_blackbox_pl)
-            for (i += 1; i < 4; i += 1)
-            {
-                if (b == i || b2 == i || (b3 == i && bm < 3))
-                {
-                    bm += 1
-                    instance_create((global.idealborder[0] + (g[i] * 25)), ((0 - (j * 45)) + random(20)), obj_plusbomb)
-                }
-                else
-                    instance_create((global.idealborder[0] + (g[i] * 25)), ((0 - (j * 45)) + random(20)), obj_blackbox_pl)
-            }
         }
         j += 1
     }
@@ -283,20 +272,12 @@ if (type == 10)
         bm2 = choose(0, 1, 2, 3, 4)
         if (bm2 == bm1)
             bm2 += 1
-        i = 0
-        if (i < 4)
+        for (i = 0; i < 4; i += 1)
         {
             if (bm1 == i || bm2 == i || j == i)
                 instance_create((global.idealborder[0] + (i * 25)), (0 - (j * 260)), obj_plusbomb)
             else
                 instance_create((global.idealborder[0] + (i * 25)), (0 - (j * 260)), obj_blackbox_pl)
-            for (i += 1; i < 4; i += 1)
-            {
-                if (bm1 == i || bm2 == i || j == i)
-                    instance_create((global.idealborder[0] + (i * 25)), (0 - (j * 260)), obj_plusbomb)
-                else
-                    instance_create((global.idealborder[0] + (i * 25)), (0 - (j * 260)), obj_blackbox_pl)
-            }
         }
         j += 1
     }
@@ -309,13 +290,8 @@ if (type == 11)
     j = 0
     repeat (8)
     {
-        i = 0
-        if (i < 3)
-        {
+        for (i = 0; i < 3; i += 1)
             instance_create((global.idealborder[0] + (25 * i)), (0 - (j * 150)), obj_upbox_pl)
-            for (i += 1; i < 3; i += 1)
-                instance_create((global.idealborder[0] + (25 * i)), (0 - (j * 150)), obj_upbox_pl)
-        }
         j += 1
     }
     obj_upbox_pl.vspeed = 4
@@ -325,13 +301,8 @@ if (type == 12)
     j = 0
     repeat (3)
     {
-        i = 0
-        if (i < 5)
-        {
+        for (i = 0; i < 5; i += 1)
             instance_create((global.idealborder[0] + (25 * i)), (0 - (j * 200)), obj_upbox_new_pl)
-            for (i += 1; i < 5; i += 1)
-                instance_create((global.idealborder[0] + (25 * i)), (0 - (j * 200)), obj_upbox_new_pl)
-        }
         j += 1
     }
     j = 0
@@ -350,13 +321,8 @@ if (type == 13)
     j = 0
     repeat (7)
     {
-        i = 0
-        if (i < 3)
-        {
+        for (i = 0; i < 3; i += 1)
             instance_create((global.idealborder[0] + random(150)), ((0 - (j * 120)) - (i * 40)), obj_mettfodder)
-            for (i += 1; i < 3; i += 1)
-                instance_create((global.idealborder[0] + random(150)), ((0 - (j * 120)) - (i * 40)), obj_mettfodder)
-        }
         j += 1
     }
 }
@@ -365,13 +331,8 @@ if (type == 14)
     j = 0
     repeat (5)
     {
-        i = 0
-        if (i < 3)
-        {
+        for (i = 0; i < 3; i += 1)
             instance_create((global.idealborder[0] + random(150)), ((0 - (j * 150)) - (i * 50)), obj_mettfodder)
-            for (i += 1; i < 3; i += 1)
-                instance_create((global.idealborder[0] + random(150)), ((0 - (j * 150)) - (i * 50)), obj_mettfodder)
-        }
         j += 1
     }
 }
@@ -403,13 +364,8 @@ if (type == 26)
         g[1] = (g[0] + choose(1, 2))
         g[2] = (g[1] + choose(1, 2))
         g[3] = choose(5, 6)
-        i = 0
-        if (i < 4)
-        {
+        for (i = 0; i < 4; i += 1)
             instance_create((global.idealborder[0] + (g[i] * 25)), (((0 - (j * 95)) + random(60)) - 100), obj_blackbox_pl)
-            for (i += 1; i < 4; i += 1)
-                instance_create((global.idealborder[0] + (g[i] * 25)), (((0 - (j * 95)) + random(60)) - 100), obj_blackbox_pl)
-        }
         j += 1
     }
     with (obj_blackbox_pl)
@@ -516,8 +472,7 @@ if (type == 29)
         b2 = choose(0, 1, 2, 3)
         b3 = choose(0, 1, 2, 3)
         bm = 0
-        i = 0
-        if (i < 4)
+        for (i = 0; i < 4; i += 1)
         {
             if (b == i || (b2 == i && bm < 3))
             {
@@ -528,18 +483,6 @@ if (type == 29)
                 instance_create((global.idealborder[0] + (g[i] * 25)), ((0 - (j * 85)) + random(50)), obj_mettlightning_pl)
             else
                 instance_create((global.idealborder[0] + (g[i] * 25)), ((0 - (j * 85)) + random(50)), obj_blackbox_pl)
-            for (i += 1; i < 4; i += 1)
-            {
-                if (b == i || (b2 == i && bm < 3))
-                {
-                    bm += 1
-                    instance_create((global.idealborder[0] + (g[i] * 25)), ((0 - (j * 85)) + random(50)), obj_plusbomb)
-                }
-                else if (b3 == i)
-                    instance_create((global.idealborder[0] + (g[i] * 25)), ((0 - (j * 85)) + random(50)), obj_mettlightning_pl)
-                else
-                    instance_create((global.idealborder[0] + (g[i] * 25)), ((0 - (j * 85)) + random(50)), obj_blackbox_pl)
-            }
         }
         j += 1
     }
@@ -723,12 +666,9 @@ if (type == 36)
     j = 0
     repeat (3)
     {
-        i = 0
-        if (i < 3)
+        for (i = 0; i < 3; i += 1)
         {
             km = instance_create((global.idealborder[0] + random(150)), ((0 - (j * 90)) - (i * 30)), obj_mettfodder)
-            for (i += 1; i < 3; i += 1)
-                km = instance_create((global.idealborder[0] + random(150)), ((0 - (j * 90)) - (i * 30)), obj_mettfodder)
         }
         j += 1
     }
@@ -861,20 +801,12 @@ if (type == 43)
         bm2 = choose(0, 1, 2, 3, 4)
         if (bm2 == bm1)
             bm2 += 1
-        i = 0
-        if (i < 4)
+        for (i = 0; i < 4; i += 1)
         {
             if (bm1 == i || bm2 == i || j == i)
                 instance_create((global.idealborder[0] + (i * 25)), (0 - (j * 180)), obj_plusbomb)
             else
                 instance_create((global.idealborder[0] + (i * 25)), (0 - (j * 180)), obj_blackbox_pl)
-            for (i += 1; i < 4; i += 1)
-            {
-                if (bm1 == i || bm2 == i || j == i)
-                    instance_create((global.idealborder[0] + (i * 25)), (0 - (j * 180)), obj_plusbomb)
-                else
-                    instance_create((global.idealborder[0] + (i * 25)), (0 - (j * 180)), obj_blackbox_pl)
-            }
         }
         j += 1
     }
@@ -893,20 +825,12 @@ if (type == 44)
         bm2 = choose(0, 1, 2, 3, 4)
         if (bm2 == bm1)
             bm2 += 1
-        i = 0
-        if (i < 4)
+        for (i = 0; i < 4; i += 1)
         {
             if (bm1 == i || bm2 == i || j == i)
                 instance_create((global.idealborder[0] + (i * 25)), (-60 - (j * 250)), obj_plusbomb)
             else
                 instance_create((global.idealborder[0] + (i * 25)), (-60 - (j * 250)), obj_blackbox_pl)
-            for (i += 1; i < 4; i += 1)
-            {
-                if (bm1 == i || bm2 == i || j == i)
-                    instance_create((global.idealborder[0] + (i * 25)), (-60 - (j * 250)), obj_plusbomb)
-                else
-                    instance_create((global.idealborder[0] + (i * 25)), (-60 - (j * 250)), obj_blackbox_pl)
-            }
         }
         j += 1
     }
@@ -934,8 +858,7 @@ if (type == 45)
         b2 = choose(0, 1, 2, 3)
         b3 = choose(0, 1, 2, 3)
         bm = 0
-        i = 0
-        if (i < 4)
+        for (i = 0; i < 4; i += 1)
         {
             if (b == i || b2 == i || (b3 == i && bm < 3))
             {
@@ -944,16 +867,6 @@ if (type == 45)
             }
             else
                 instance_create((global.idealborder[0] + (g[i] * 25)), ((0 - (j * 45)) + random(20)), obj_blackbox_pl)
-            for (i += 1; i < 4; i += 1)
-            {
-                if (b == i || b2 == i || (b3 == i && bm < 3))
-                {
-                    bm += 1
-                    instance_create((global.idealborder[0] + (g[i] * 25)), ((0 - (j * 45)) + random(20)), obj_plusbomb)
-                }
-                else
-                    instance_create((global.idealborder[0] + (g[i] * 25)), ((0 - (j * 45)) + random(20)), obj_blackbox_pl)
-            }
         }
         j += 1
     }
@@ -976,8 +889,7 @@ if (type == 46)
         b2 = choose(0, 1, 2, 3)
         b3 = choose(0, 1, 2, 3)
         bm = 0
-        i = 0
-        if (i < 4)
+        for (i = 0; i < 4; i += 1)
         {
             if (b == i || b2 == i || (b3 == i && bm < 3))
             {
@@ -986,16 +898,6 @@ if (type == 46)
             }
             else
                 instance_create((global.idealborder[0] + (g[i] * 25)), ((0 - (j * 54)) + random(25)), obj_blackbox_pl)
-            for (i += 1; i < 4; i += 1)
-            {
-                if (b == i || b2 == i || (b3 == i && bm < 3))
-                {
-                    bm += 1
-                    instance_create((global.idealborder[0] + (g[i] * 25)), ((0 - (j * 54)) + random(25)), obj_plusbomb)
-                }
-                else
-                    instance_create((global.idealborder[0] + (g[i] * 25)), ((0 - (j * 54)) + random(25)), obj_blackbox_pl)
-            }
         }
         j += 1
     }
@@ -1092,8 +994,7 @@ if (type == 52)
         b2 = choose(0, 1, 2, 3)
         b3 = choose(0, 1, 2, 3)
         bm = 0
-        i = 0
-        if (i < 4)
+        for (i = 0; i < 4; i += 1)
         {
             if (b == i || b2 == i || (b3 == i && bm < 3))
             {
@@ -1102,16 +1003,6 @@ if (type == 52)
             }
             else
                 instance_create((global.idealborder[0] + (g[i] * 25)), ((0 - (j * 45)) + random(25)), obj_blackbox_pl)
-            for (i += 1; i < 4; i += 1)
-            {
-                if (b == i || b2 == i || (b3 == i && bm < 3))
-                {
-                    bm += 1
-                    instance_create((global.idealborder[0] + (g[i] * 25)), ((0 - (j * 45)) + random(25)), obj_plusbomb)
-                }
-                else
-                    instance_create((global.idealborder[0] + (g[i] * 25)), ((0 - (j * 45)) + random(25)), obj_blackbox_pl)
-            }
         }
         j += 1
     }
@@ -1148,8 +1039,7 @@ if (type == 54)
     j = 0
     repeat (4)
     {
-        i = 0
-        if (i < 3)
+        for (i = 0; i < 3; i += 1)
         {
             f = instance_create((global.idealborder[0] + random(150)), ((0 - (j * 120)) - (i * 40)), obj_mettfodder)
             f.vspeed += 0.5
@@ -1157,15 +1047,6 @@ if (type == 54)
             t.direction += (random(20) - 10)
             t.vspeed += 2
             t.friction = -0.02
-            for (i += 1; i < 3; i += 1)
-            {
-                f = instance_create((global.idealborder[0] + random(150)), ((0 - (j * 120)) - (i * 40)), obj_mettfodder)
-                f.vspeed += 0.5
-                t = instance_create((global.idealborder[0] + random(150)), (((0 - (j * 120)) - (i * 40)) - 20), obj_mettlightning_pl)
-                t.direction += (random(20) - 10)
-                t.vspeed += 2
-                t.friction = -0.02
-            }
         }
         j += 1
     }
@@ -1224,20 +1105,12 @@ if (type == 56)
         bm2 = choose(0, 1, 2, 3, 4)
         if (bm2 == bm1)
             bm2 += 1
-        i = 0
-        if (i < 4)
+        for (i = 0; i < 4; i += 1)
         {
             if (bm1 == i || bm2 == i || j == i)
                 instance_create((global.idealborder[0] + (i * 25)), (-100 - (j * 240)), obj_plusbomb)
             else
                 instance_create((global.idealborder[0] + (i * 25)), (-100 - (j * 240)), obj_blackbox_pl)
-            for (i += 1; i < 4; i += 1)
-            {
-                if (bm1 == i || bm2 == i || j == i)
-                    instance_create((global.idealborder[0] + (i * 25)), (-100 - (j * 240)), obj_plusbomb)
-                else
-                    instance_create((global.idealborder[0] + (i * 25)), (-100 - (j * 240)), obj_blackbox_pl)
-            }
         }
         j += 1
     }

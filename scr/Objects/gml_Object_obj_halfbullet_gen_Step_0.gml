@@ -34,9 +34,10 @@ if (active == true && defined == 1)
         }
         curbullet += 1
         if (curbullet >= maxbullet)
+        {
             break
-        else
-            continue
+            active = false
+        }
     }
 }
 bultimer += 1

@@ -227,6 +227,9 @@ if (sellmenu == 2)
     {
         if (sellpos2 == 1)
             sellmenu = 1
+        else
+        {
+        }
     }
 }
 if (global.flag[276] == 1)

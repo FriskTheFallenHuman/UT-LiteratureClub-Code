@@ -17,7 +17,9 @@ if (global.osflavor >= 1)
 
 if (os_type == os_switch_beta && (!variable_global_exists("switchlogin")))
 {
-    for (global.switchlogin = -1; global.switchlogin < 0; global.switchlogin = switch_accounts_select_account(1, 0, 0)) {}
+    global.switchlogin = -1
+    while (global.switchlogin < 0)
+        global.switchlogin = switch_accounts_select_account(1, 0, 0)
 }
 
 if (os_type == os_switch_beta)
@@ -107,7 +109,7 @@ global.default_analog_sense = global.analog_sense
 global.default_analog_sense_sense = global.analog_sense_sense
 global.default_joy_dir = global.joy_dir
 global.screen_border_id = 0
-global.screen_border_active = false
+global.screen_border_active = 0
 global.screen_border_alpha = 1
 global.screen_border_state = 0
 global.screen_border_dynamic_fade_id = 0
@@ -121,33 +123,35 @@ j2 = 0
 ja = 0
 j_ch = 0
 jt = 0
-i = 0
 
-while (i < gamepad_get_device_count())
+if (global.osflavor >= 1)
 {
-    if gamepad_is_connected(i)
+    for (i = 0; i < gamepad_get_device_count(); i++)
     {
-        if (j_ch > 0)
+        if gamepad_is_connected(i)
         {
-            j_ch = 0
-            break
+            if (j_ch > 0)
+            {
+                j_ch = 0
+                break
+            }
+            else
+            {
+                j_ch = (i + 1)
+            }
+        }
+    }
+    if (j_ch == 0)
+    {
+        if (os_type == os_switch_beta)
+        {
+            if (switch_controller_support_show() == 0)
+                j_ch = (switch_controller_support_get_selected_id() + 1)
         }
         else
-        {
-            j_ch = (i + 1)
-            i++
-            continue
-        }
-    }
-    else
-    {
-        i++
-        continue
+            j_ch = 1
     }
 }
-
-if (j_ch == 0)
-    j_ch = 1
 
 spec_rtimer = 0
 global.endsong_loaded = 0

@@ -8,15 +8,11 @@ while (loop == 1)
         global.phone[i] = argument0
         break
     }
-    else if (i == 8)
+    if (i == 8)
     {
         script_execute(scr_itemnospace)
         break
     }
-    else
-    {
-        i += 1
-        continue
-    }
+    i += 1
 }
 script_execute(scr_phonename)

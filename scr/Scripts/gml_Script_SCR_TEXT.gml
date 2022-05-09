@@ -543,7 +543,7 @@ switch argument0
             global.msg[0] = scr_gettext("SCR_TEXT_540")
             scr_itemcheck(16)
             scr_storagecheck(16)
-            if (haveit == false && haveit2 == 0)
+            if (haveit == 0 && haveit2 == 0)
             {
                 global.msg[0] = scr_gettext("SCR_TEXT_545")
                 global.msg[1] = scr_gettext("SCR_TEXT_546")
@@ -557,7 +557,7 @@ switch argument0
             global.msg[0] = scr_gettext("SCR_TEXT_554")
             scr_itemcheck(16)
             scr_storagecheck(16)
-            if (haveit == false && haveit2 == 0)
+            if (haveit == 0 && haveit2 == 0)
             {
                 global.msg[1] = scr_gettext("SCR_TEXT_559")
                 scr_itemget(16)
@@ -1606,7 +1606,7 @@ switch argument0
         script_execute(scr_itemcheck, 5)
         if (global.choice == 0)
         {
-            if (haveit == false)
+            if (haveit == 0)
             {
                 if (doak == 0)
                 {
@@ -1617,7 +1617,7 @@ switch argument0
         }
         if (noroom == 0)
             global.msg[0] = scr_gettext("SCR_TEXT_1692")
-        if (haveit == true)
+        if (haveit == 1)
             global.msg[0] = scr_gettext("SCR_TEXT_1694")
         if (noroom == 1)
             global.msg[0] = scr_gettext("SCR_TEXT_1695")
@@ -5125,7 +5125,7 @@ switch argument0
         if (global.choice == 0)
         {
             scr_itemremove(41)
-            if (removed == true)
+            if (removed == 1)
             {
                 global.gold += 99
                 global.flag[262] = 1
@@ -5160,7 +5160,7 @@ switch argument0
         if (global.choice == 0)
         {
             scr_itemremove(21)
-            if (removed == true)
+            if (removed == 1)
             {
                 global.gold += 99
                 global.flag[263] = 1
@@ -5189,31 +5189,31 @@ switch argument0
             global.msg[1] = scr_gettext("SCR_TEXT_5677")
             type = 0
             scr_itemcheck(38)
-            if (haveit == true && global.flag[264] == 0)
+            if (haveit == 1 && global.flag[264] == 0)
                 type = 1
             scr_itemcheck(39)
-            if (haveit == true)
+            if (haveit == 1)
                 type = 2
             scr_itemcheck(28)
-            if (haveit == true)
+            if (haveit == 1)
                 type = 3
             scr_itemcheck(29)
-            if (haveit == true)
+            if (haveit == 1)
                 type = 4
             scr_itemcheck(30)
-            if (haveit == true)
+            if (haveit == 1)
                 type = 4
             scr_itemcheck(31)
-            if (haveit == true)
+            if (haveit == 1)
                 type = 4
             scr_itemcheck(32)
-            if (haveit == true)
+            if (haveit == 1)
                 type = 4
             scr_itemcheck(33)
-            if (haveit == true)
+            if (haveit == 1)
                 type = 4
             scr_itemcheck(34)
-            if (haveit == true)
+            if (haveit == 1)
                 type = 4
             if (type == 1 && global.flag[264] == 0)
             {
@@ -6556,7 +6556,7 @@ switch argument0
             global.msg[1] = scr_gettext("SCR_TEXT_7001")
             global.msg[2] = scr_gettext("SCR_TEXT_7002")
             scr_itemcheck(27)
-            if (haveit == true)
+            if (haveit == 1)
             {
                 global.msg[0] = scr_gettext("SCR_TEXT_7007")
                 global.msg[1] = scr_gettext("SCR_TEXT_7008")
@@ -6636,7 +6636,5 @@ switch argument0
         }
         file_text_close(fileid)
         break
-    default:
-
 }
 

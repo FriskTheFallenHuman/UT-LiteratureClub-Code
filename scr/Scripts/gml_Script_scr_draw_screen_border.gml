@@ -1,6 +1,6 @@
 var overlay;
 var border_id = argument0
-draw_enable_alphablend(false)
+draw_enable_alphablend(0)
 if (border_id == 1)
 {
     if (os_type == os_ps4 || os_type == os_switch_beta || os_type == os_windows)
@@ -126,14 +126,14 @@ if (border_id == 2)
         {
             if (global.screen_border_state > 0)
             {
-                draw_enable_alphablend(true)
+                draw_enable_alphablend(1)
                 draw_set_alpha((global.screen_border_state * 0.5))
             }
             scr_draw_background_ps4(overlay[0, 0], overlay[0, 1], overlay[0, 2])
             if (global.screen_border_state > 0)
             {
                 draw_set_alpha(1)
-                draw_enable_alphablend(false)
+                draw_enable_alphablend(0)
             }
         }
         for (i = 1; i < 9; i++)
@@ -256,4 +256,4 @@ if (border_id == 12)
         scr_draw_background_ps4(bg_border_dog_1080, 0, 0)
 }
 draw_set_alpha(1)
-draw_enable_alphablend(true)
+draw_enable_alphablend(1)

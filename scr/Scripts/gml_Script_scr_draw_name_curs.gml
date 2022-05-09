@@ -8,19 +8,13 @@ if (global.language == "ja")
 else
 {
     use_font = fnt_curs
-    var i = 1
-    while (i < strlen(global.charname))
+    for (var i = 1; i < strlen(global.charname); i++)
     {
         if (ord(string_char_at(global.charname, i)) >= 12288)
         {
             use_font = 12
             yy += 3
             break
-        }
-        else
-        {
-            i++
-            continue
         }
     }
 }

@@ -4,14 +4,11 @@ if (image_xscale == 1)
 if (image_xscale > 1)
 {
     draw_sprite(spr_waterfall_topleft, (siner / 5), x, y)
-    i = 1
-    while (i < (image_xscale + 1))
+    for (i = 1; i < (image_xscale + 1); i += 1)
     {
         if (i < image_xscale)
         {
             draw_sprite(spr_waterfall_midtop, (siner / 5), (x + (i * 20)), y)
-            i += 1
-            continue
         }
         else
         {

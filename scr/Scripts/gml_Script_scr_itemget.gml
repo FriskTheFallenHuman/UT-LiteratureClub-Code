@@ -9,16 +9,12 @@ while (loop == 1)
         global.item[i] = argument0
         break
     }
-    else if (i == 8)
+    if (i == 8)
     {
         script_execute(scr_itemnospace)
         break
     }
-    else
-    {
-        i += 1
-        continue
-    }
+    i += 1
 }
 ossafe_ini_open("undertale.ini")
 var bc = ini_read_real(("General" + string(global.filechoice)), "BC", 0)

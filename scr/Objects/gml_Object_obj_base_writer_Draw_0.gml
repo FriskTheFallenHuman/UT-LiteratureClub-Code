@@ -34,18 +34,16 @@ if surface_exists(editedsurf)
     surface_reset_target()
 }
 var halfsize = 0
-var n = 1
-while (n <= stringpos)
+for (var n = 1; n <= stringpos; n++)
 {
     var ch = string_char_at(originalstring, n)
     var myletter = ""
     if (ch == "^" && string_char_at(originalstring, (n + 1)) != "0")
     {
         n++
-        n++
         continue
     }
-    else if (ch == "\\")
+    if (ch == "\\")
     {
         n++
         ch = string_char_at(originalstring, n)
@@ -264,18 +262,16 @@ while (n <= stringpos)
                 myx *= 2
             myx += __view_get(0, view_current)
         }
-        n++
         continue
     }
-    else if (ch == "&")
+    if (ch == "&")
     {
         script_execute(SCR_NEWLINE)
-        n++
         continue
     }
-    else if (ch == "/")
+    if (ch == "/")
     {
-        halt = true
+        halt = 1
         var nextch = string_char_at(originalstring, (n + 1))
         if (nextch == "%")
             halt = 2
@@ -292,16 +288,13 @@ while (n <= stringpos)
             instance_destroy()
             break
         }
-        else
-        {
-            stringno++
-            originalstring = scr_replace_buttons_pc(mystring[stringno])
-            stringpos = 0
-            myx = 4
-            myy = 4
-            alarm[0] = textspeed
-            break
-        }
+        stringno++
+        originalstring = scr_replace_buttons_pc(mystring[stringno])
+        stringpos = 0
+        myx = 4
+        myy = 4
+        alarm[0] = textspeed
+        break
     }
     else
     {

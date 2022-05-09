@@ -934,7 +934,5 @@ switch argument1
         else
             script_execute(scr_writetext, 1520, "x", 0, 0)
         break
-    default:
-
 }
 
