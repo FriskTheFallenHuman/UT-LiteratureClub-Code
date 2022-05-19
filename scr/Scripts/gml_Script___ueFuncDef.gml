@@ -1,5 +1,5 @@
 if (os_type == os_windows)
-    var szDllName = (working_directory + "data\\libraries\\ue.dll")
+    szDllName = (working_directory + "data\\libraries\\ue.dll")
 else if (os_type == os_linux)
     szDllName = (working_directory + "data\\libraries\\libue.so")
 else if (os_type == os_linux)

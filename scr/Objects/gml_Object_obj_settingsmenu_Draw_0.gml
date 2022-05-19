@@ -58,11 +58,11 @@ if (menu != 5)
 else
     draw_set_color(global.COL_B)
 scr_drawtext_centered_scaled(50, 140, scr_gettext("settings_widescreen"), 1, 1)
-if (obj_screen.dynRatio == 0)
+if (global.toggle_widescreen == false)
     draw_set_color(global.COL_A)
 else
     draw_set_color(global.COL_PLUS)
-if (obj_screen.dynRatio == 0)
+if (global.toggle_widescreen == false)
     var hardmode_sel = scr_gettext("settings_hardmode_off")
 else
     hardmode_sel = scr_gettext("settings_hardmode_on")

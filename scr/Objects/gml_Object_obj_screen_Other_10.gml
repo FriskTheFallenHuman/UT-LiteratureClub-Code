@@ -2,7 +2,7 @@ var view = roomMainView
 var cam = view_camera[view]
 var viewW = camera_get_view_width(cam)
 var viewH = camera_get_view_height(cam)
-var intendedSize = (dynRatio ? [960, 540] : [640, 480])
+var intendedSize = (global.toggle_widescreen ? [960, 540] : [640, 480])
 if (intendedSize[0] <= 0 || intendedSize[1] <= 0)
     return;
 var sizeScaleW = 1

@@ -114,18 +114,11 @@ if (menu_engage == false)
     {
         if (menu_engage == true || keyboard_check_pressed(vk_left) || keyboard_check_pressed(vk_right))
         {
-            if (i_ex(obj_screen))
-            {
-                with(obj_screen)
-                {
-                    if (dynRatio == 1)
-                        dynRatio = 0
-                    else
-                        dynRatio = 1
-						
-					scr_enable_screen_border(!dynRatio)
-                }
-            }
+            if (global.toggle_widescreen == true)
+                global.toggle_widescreen = false
+            else
+                global.toggle_widescreen = true
+            scr_enable_screen_border((!global.toggle_widescreen))
         }
 
         menu_engage = false
