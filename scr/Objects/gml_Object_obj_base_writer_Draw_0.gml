@@ -1,52 +1,65 @@
 if (!surface_exists(normalsurf))
 {
-    normalsurf = surface_create(648, 488)
+    normalsurf = surface_create(512, 512)
     surface_set_target(normalsurf)
     draw_clear_alpha(c_black, 0)
     surface_reset_target()
 }
+
 if ((!surface_exists(editedsurf)) && edited)
 {
-    editedsurf = surface_create(648, 488)
+    editedsurf = surface_create(512, 512)
     surface_set_target(editedsurf)
     draw_clear_alpha(c_black, 0)
     surface_reset_target()
 }
+
 if (surface_exists(editedsurf) && (!edited))
     surface_free(editedsurf)
+
 if (i_ex(dialoguer) && dialoguer.zurasucon == 2)
     writingx = (camerax() + dialoguer.remwriterx)
-if vtext
-    myx = (((writingxend - writingx) - vspacing) + 4)
+
+if (vtext)
+    myx = ((writingxend - writingx) - vspacing)
 else
-    myx = 4
-myy = 4
-if surface_exists(normalsurf)
+    myx = 0
+
+myy = 0
+
+if (surface_exists(normalsurf))
 {
     surface_set_target(normalsurf)
     draw_clear_alpha(c_black, 0)
     surface_reset_target()
 }
-if surface_exists(editedsurf)
+
+if (surface_exists(editedsurf))
 {
     surface_set_target(editedsurf)
     draw_clear_alpha(c_black, 0)
     surface_reset_target()
 }
+
 var halfsize = 0
-for (var n = 1; n <= stringpos; n++)
+var n = 1
+
+while (n <= stringpos)
 {
     var ch = string_char_at(originalstring, n)
     var myletter = ""
+
     if (ch == "^" && string_char_at(originalstring, (n + 1)) != "0")
     {
         n++
+        n++
         continue
     }
-    if (ch == "\\")
+    else if (ch == "\\")
     {
         n++
         ch = string_char_at(originalstring, n)
+
         if (ch == "R")
             mycolor = c_red
         else if (ch == "G")
@@ -94,6 +107,7 @@ for (var n = 1; n <= stringpos; n++)
         {
             n++
             var newtyper = string_char_at(originalstring, n)
+
             if (newtyper == "-")
                 halfsize = 1
             else if (newtyper == "+")
@@ -137,12 +151,14 @@ for (var n = 1; n <= stringpos; n++)
             if (sym == 4)
             {
                 var sym_s = spr_infinitysign
-                if surface_exists(normalsurf)
+
+                if (surface_exists(normalsurf))
                 {
                     surface_set_target(normalsurf)
                     draw_sprite_ext(sym_s, 0, (myx + (random(shake) - (shake / 2))), ((myy + 10) + (random(shake) - (shake / 2))), 2, 2, 0, c_white, 1)
                     surface_reset_target()
                 }
+
                 if (surface_exists(editedsurf) && edited)
                 {
                     surface_set_target(editedsurf)
@@ -156,13 +172,17 @@ for (var n = 1; n <= stringpos; n++)
             n++
             ch = string_char_at(originalstring, n)
             var icontype = 0
+
             if (myfont == fnt_papyrus || myfont == fnt_ja_papyrus_btl)
                 icontype = 1
+ 
             var sprite = scr_getbuttonsprite(ch, icontype)
-            if (sprite != -4)
+
+            if (sprite != noone)
             {
                 var spritex = myx
                 var spritey = myy
+
                 if (shake > 38)
                 {
                     if (shake == 39)
@@ -203,45 +223,55 @@ for (var n = 1; n <= stringpos; n++)
                     spritex += (random(shake) - (shake / 2))
                     spritey += (random(shake) - (shake / 2))
                 }
+
                 var icon_scale = 1
+
                 if (myfont == fnt_main || myfont == fnt_ja_main)
                     icon_scale = 2
+
                 if (myfont == fnt_main || myfont == fnt_maintext)
                     spritey += (1 * icon_scale)
+
                 if (myfont == fnt_ja_papyrus_btl)
                     spritex -= 1
+
                 if (myfont == fnt_papyrus && icontype == 1)
                     spritey += floor(((16 - sprite_get_height(sprite)) / 2))
+
                 if vtext
                 {
-                    if surface_exists(normalsurf)
+                    if (surface_exists(normalsurf))
                     {
                         surface_set_target(normalsurf)
                         draw_sprite_ext(sprite, 0, (spritex - sprite_get_width(sprite)), spritey, icon_scale, icon_scale, 0, c_white, 1)
                         surface_reset_target()
                     }
+
                     if (surface_exists(editedsurf) && edited)
                     {
                         surface_set_target(editedsurf)
                         draw_sprite_ext(sprite, 0, (spritex - sprite_get_width(sprite)), spritey, icon_scale, icon_scale, 0, editedcolor, 1)
                         surface_reset_target()
                     }
+
                     myy += ((sprite_get_height(sprite) + 1) * icon_scale)
                 }
                 else
                 {
-                    if surface_exists(normalsurf)
+                    if (surface_exists(normalsurf))
                     {
                         surface_set_target(editedsurf)
                         draw_sprite_ext(sprite, 0, spritex, spritey, icon_scale, icon_scale, 0, c_white, 1)
                         surface_reset_target()
                     }
+
                     if (surface_exists(editedsurf) && edited)
                     {
                         surface_set_target(editedsurf)
                         draw_sprite_ext(sprite, 0, spritex, spritey, icon_scale, icon_scale, 0, editedcolor, 1)
                         surface_reset_target()
                     }
+
                     myx += ((sprite_get_width(sprite) + 1) * icon_scale)
                 }
             }
@@ -251,10 +281,10 @@ for (var n = 1; n <= stringpos; n++)
             n++
             var choiceindex = real(string_char_at(originalstring, n))
             if (choiceindex == 1)
-                myx = 200
+                myx = 196
             else
             {
-                myx = 104
+                myx = 100
                 if (myfont == fnt_ja_comicsans_big)
                     myx += 11
             }
@@ -262,16 +292,18 @@ for (var n = 1; n <= stringpos; n++)
                 myx *= 2
             myx += __view_get(0, view_current)
         }
+        n++
         continue
     }
-    if (ch == "&")
+    else if (ch == "&")
     {
         script_execute(SCR_NEWLINE)
+        n++
         continue
     }
-    if (ch == "/")
+    else if (ch == "/")
     {
-        halt = 1
+        halt = true
         var nextch = string_char_at(originalstring, (n + 1))
         if (nextch == "%")
             halt = 2
@@ -288,26 +320,33 @@ for (var n = 1; n <= stringpos; n++)
             instance_destroy()
             break
         }
-        stringno++
-        originalstring = scr_replace_buttons_pc(mystring[stringno])
-        stringpos = 0
-        myx = 4
-        myy = 4
-        alarm[0] = textspeed
-        break
+        else
+        {
+            stringno++
+            originalstring = scr_replace_buttons_pc(mystring[stringno])
+            stringpos = 0
+            myx = writingx
+            myy = writingy
+            alarm[0] = textspeed
+            break
+        }
     }
     else
     {
         myletter = string_char_at(originalstring, n)
+
         if (myletter == "^")
             n++
-        if ((!vtext) && (myx - 4) > (writingxend - writingx))
+
+        if ((!vtext) && myx > writingxend)
             script_execute(SCR_NEWLINE)
+
         var letterx = myx
         var offsetx = 0
         var offsety = 0
         var halfscale = 1
-        if halfsize
+
+        if (halfsize)
         {
             halfscale = 0.5
             if vtext
@@ -315,6 +354,7 @@ for (var n = 1; n <= stringpos; n++)
             else
                 offsety += (vspacing * 0.33)
         }
+
         if (global.language == "en")
         {
             if (global.typer == 18)
@@ -362,12 +402,15 @@ for (var n = 1; n <= stringpos; n++)
                 }
             }
         }
+
         scr_setfont(myfont)
         draw_set_color(mycolor)
-        if vtext
+
+        if (vtext)
             var angle = -90
         else
             angle = 0
+
         if (shake > 38)
         {
             if (shake == 39)
@@ -408,15 +451,17 @@ for (var n = 1; n <= stringpos; n++)
             offsetx += (random(shake) - (shake / 2))
             offsety += (random(shake) - (shake / 2))
         }
+
         var display_scale = (surface_get_width(application_surface) / __view_get(2, view_current))
         var finalx = (round(((letterx + offsetx) * display_scale)) / display_scale)
         var finaly = (round(((myy + offsety) * display_scale)) / display_scale)
         var scalex = (htextscale * halfscale)
         var scaley = (vtextscale * halfscale)
-        if surface_exists(normalsurf)
+
+        if (surface_exists(normalsurf))
         {
             surface_set_target(normalsurf)
-            if (draw_get_color() != 16777215 && draw_get_color() != 0 && global.inbattle == 0)
+            if (draw_get_color() != c_white && draw_get_color() != 0 && global.inbattle == 0)
             {
                 draw_text_transformed_color((finalx + 0.5), (finaly + 0.5), myletter, scalex, scaley, angle, mycolor, mycolor, mycolor, mycolor, 0.3)
                 draw_text_transformed_color(finalx, finaly, myletter, scalex, scaley, angle, c_white, c_white, mycolor, mycolor, 1)
@@ -436,13 +481,16 @@ for (var n = 1; n <= stringpos; n++)
             }
             surface_reset_target()
         }
+
         if (surface_exists(editedsurf) && edited)
         {
             surface_set_target(editedsurf)
             draw_text_transformed_color(finalx, finaly, myletter, scalex, scaley, angle, editedcolor, editedcolor, editedcolor, editedcolor, 1)
             surface_reset_target()
         }
+
         letterx += spacing
+
         if (global.language == "en")
         {
             if (myfont == fnt_comicsans)
@@ -520,6 +568,7 @@ for (var n = 1; n <= stringpos; n++)
                     letterx -= floor((spacing * 0.4))
             }
         }
+
         if (!vtext)
         {
             if halfsize
@@ -527,17 +576,21 @@ for (var n = 1; n <= stringpos; n++)
             else
                 myx = letterx
         }
+
         n++
+
         continue
     }
 }
+
 if (surface_exists(editedsurf) && edited)
 {
     for (var i = 0; i < 360; i += 45)
     {
         for (var j = 0; j < editedradius; j += (editedradius / 5))
-            draw_surface(editedsurf, ((writingx + lengthdir_x(j, i)) - 4), ((writingy + lengthdir_y(j, i)) - 4))
+            draw_surface(editedsurf, (writingx + lengthdir_x(j, i)), (writingy + lengthdir_y(j, i)))
     }
 }
-if surface_exists(normalsurf)
-    draw_surface(normalsurf, (writingx - 4), (writingy - 4))
+
+if (surface_exists(normalsurf))
+    draw_surface(normalsurf, writingx, writingy)

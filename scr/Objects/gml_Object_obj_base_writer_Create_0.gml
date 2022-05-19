@@ -16,6 +16,6 @@ while (global.msg[n] != "%%%")
 }
 originalstring = scr_replace_buttons_pc(mystring[0])
 alarm[0] = textspeed
-dialoguer = -4
-editedsurf = -4
-normalsurf = -4
+dialoguer = noone
+editedsurf = noone
+normalsurf = noone
