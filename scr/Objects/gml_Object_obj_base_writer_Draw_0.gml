@@ -218,7 +218,7 @@ while (n <= stringpos)
                         direction -= (30 * n)
                     }
                 }
-                else if (!instance_exists(obj_papdate))
+                else if (!i_ex(obj_papdate))
                 {
                     spritex += (random(shake) - (shake / 2))
                     spritey += (random(shake) - (shake / 2))
@@ -297,7 +297,7 @@ while (n <= stringpos)
     }
     else if (ch == "&")
     {
-        script_execute(SCR_NEWLINE)
+        SCR_NEWLINE()
         n++
         continue
     }
@@ -339,7 +339,7 @@ while (n <= stringpos)
             n++
 
         if ((!vtext) && myx > writingxend)
-            script_execute(SCR_NEWLINE)
+            SCR_NEWLINE()
 
         var letterx = myx
         var offsetx = 0
@@ -556,7 +556,7 @@ while (n <= stringpos)
         }
         else if (global.language == "ja")
         {
-            if vtext
+            if (vtext)
                 myy += round(((string_width(string_hash_to_newline(myletter)) * htextscale) * halfscale))
             else if (myletter == " " || ord(myletter) >= 65377)
                 letterx -= floor((spacing / 2))
